@@ -18,15 +18,29 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class LoginPrueba extends JFrame {
+public class Prueba extends JFrame {
 
 	
-	
-	public LoginPrueba() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * Launch the application.
+	 */
+	private JPanel contentPane;
+	private JTextField textUserName;
+	private JPasswordField txtPassword;
+
+
+	/**
+	 * Create the frame.
+	 */
+	public Prueba() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(188, 143, 143));
+		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new LineBorder(new Color(128, 0, 0), 2));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -61,7 +75,7 @@ public class LoginPrueba extends JFrame {
 		panel_1.add(txtPassword);
 		
 		JLabel lblNewLabel_1 = new JLabel("INICIO SESI\u00D3N");
-		lblNewLabel_1.setBackground(new Color(105, 105, 105));
+		lblNewLabel_1.setBackground(Color.LIGHT_GRAY);
 		lblNewLabel_1.setBounds(342, 73, 135, 42);
 		contentPane.add(lblNewLabel_1);
 		
