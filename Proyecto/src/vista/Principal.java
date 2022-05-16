@@ -59,14 +59,20 @@ public class Principal extends JFrame {
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new CrearFactura().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
 		btnNewButton_3.setBounds(395, 329, 255, 107);
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\13-GRUPO12\\Downloads\\logo1.png"));
-		lblNewLabel.setBounds(342, 38, 337, 92);
+		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo2.png"));
+		lblNewLabel.setBounds(352, 37, 334, 92);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(342, 26, 322, 92);
+		contentPane.add(lblNewLabel_1);
 	}
 }
