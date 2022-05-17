@@ -3,16 +3,16 @@ package beans;
 public class Clientes {
 	private int id_clientes;
 	private String nombre;
-	private String DNI;
+	private String dni;
 	
 	public Clientes() {
 		
 	}
 	
-	public Clientes(int id_clientes, String nombre, String DNI) {
-		this.id_clientes = id;
+	public Clientes(int id_clientes, String nombre, String dni) {
+		this.id_clientes = id_clientes;
 		this.nombre = nombre;
-		this.DNI = DNI;
+		this.dni = dni;
 	}
 		
 	//SETTERS Y GETTERS
@@ -28,11 +28,11 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 	
-	public String getDNI() {
+	public String getDni() {
 		return nombre;
 	}
 
-	public void setDNI(String DNI) {
-		this.DNI = DNI;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 }
