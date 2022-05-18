@@ -39,7 +39,8 @@ public class CrearFactura extends JFrame {
 		contentPane.add(logo);
 		
 		JButton btnNewButton = new JButton("CLIENTES");
-		btnNewButton.setBounds(25, 133, 135, 68);
+		btnNewButton.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\Clientes.png"));
+		btnNewButton.setBounds(10, 138, 179, 68);
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -48,7 +49,8 @@ public class CrearFactura extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
-		btnNewButton_2.setBounds(25, 241, 135, 68);
+		btnNewButton_2.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\productos.png"));
+		btnNewButton_2.setBounds(10, 241, 179, 68);
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -57,7 +59,8 @@ public class CrearFactura extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnFactura = new JButton("FACTURA");
-		btnFactura.setBounds(25, 356, 135, 68);
+		btnFactura.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\report.png"));
+		btnFactura.setBounds(10, 356, 179, 68);
 		btnFactura.setBackground(new Color(105, 105, 105));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -68,13 +71,14 @@ public class CrearFactura extends JFrame {
 		contentPane.add(btnFactura);
 		
 		JButton Crear_factura = new JButton("CREAR FACTURA");
+		Crear_factura.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\pdf.png"));
 		Crear_factura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Factura().setVisible(true);
 				dispose();  //Cerrar pestaña
 			}
 		});
-		Crear_factura.setBounds(483, 486, 200, 37);
+		Crear_factura.setBounds(483, 486, 246, 37);
 		Crear_factura.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		contentPane.add(Crear_factura);
 		
@@ -90,14 +94,14 @@ public class CrearFactura extends JFrame {
 		
 		JButton boton_añadir_cliente = new JButton("");
 		boton_añadir_cliente.setBackground(Color.WHITE);
-		boton_añadir_cliente.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\a\u00F1adir2.png"));
+		boton_añadir_cliente.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
 		boton_añadir_cliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new AñadirCliente().setVisible(true);
 				dispose();  //Cerrar pestaña
 			}
 		});
-		boton_añadir_cliente.setBounds(243, 295, 72, 71);
+		boton_añadir_cliente.setBounds(258, 310, 57, 56);
 		panel.add(boton_añadir_cliente);
 		
 		JPanel panel_1 = new JPanel();
@@ -118,8 +122,8 @@ public class CrearFactura extends JFrame {
 			}
 		});
 		boton_añadir_producto.setBackground(Color.WHITE);
-		boton_añadir_producto.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\a\u00F1adir2.png"));
-		boton_añadir_producto.setBounds(273, 293, 71, 73);
+		boton_añadir_producto.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		boton_añadir_producto.setBounds(287, 313, 57, 53);
 		panel_1.add(boton_añadir_producto);
 	}
 }
