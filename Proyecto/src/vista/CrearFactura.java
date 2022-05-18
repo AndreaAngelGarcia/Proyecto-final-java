@@ -1,5 +1,7 @@
 package vista;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -20,11 +22,18 @@ import javax.swing.JScrollPane;
 public class CrearFactura extends JFrame {
 
 	private JPanel contentPane;
+	
+	int width = 1126;
+	int height = 573;
 
 	
 	public CrearFactura() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1126, 573);
+		
+		setSize(width, height);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //El posicionamiento de la ventana en el medio de la pantalla
+        this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(139, 0, 0));
 		contentPane.setBackground(new Color(128, 172, 226));
@@ -44,6 +53,8 @@ public class CrearFactura extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Clientes().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
 		contentPane.add(btnNewButton);
@@ -54,16 +65,21 @@ public class CrearFactura extends JFrame {
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Productos().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnFactura = new JButton("FACTURA");
+		btnFactura.setForeground(new Color(255, 255, 255));
 		btnFactura.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\report.png"));
 		btnFactura.setBounds(10, 356, 179, 68);
 		btnFactura.setBackground(new Color(105, 105, 105));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new CrearFactura().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
 		btnFactura.setFont(new Font("Times New Roman", Font.BOLD, 14));

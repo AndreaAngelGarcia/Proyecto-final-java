@@ -1,5 +1,7 @@
 package vista;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -7,22 +9,32 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.ImageIcon;
 
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
 
+	int width= 1120;
+	int height = 575;
 	
 	public Principal() {
+		
+		setSize(width, height);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //El posicionamiento de la ventana en el medio de la pantalla
+        this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1120, 575);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 172, 226));
 		contentPane.setForeground(SystemColor.menuText);
@@ -37,9 +49,11 @@ public class Principal extends JFrame {
 		btnClientes.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Clientes().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
-		btnClientes.setBounds(117, 166, 293, 107);
+		btnClientes.setBounds(96, 183, 293, 107);
 		contentPane.add(btnClientes);
 		
 		JButton btnNewButton_1 = new JButton("PRODUCTOS");
@@ -47,10 +61,12 @@ public class Principal extends JFrame {
 		btnNewButton_1.setBackground(SystemColor.textInactiveText);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new Productos().setVisible(true);
+				dispose();  //Cerrar pestaña
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_1.setBounds(608, 166, 293, 107);
+		btnNewButton_1.setBounds(641, 183, 293, 107);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_3 = new JButton("FACTURA");
@@ -63,16 +79,18 @@ public class Principal extends JFrame {
 				dispose();  //Cerrar pestaña
 			}
 		});
-		btnNewButton_3.setBounds(395, 329, 255, 107);
+		btnNewButton_3.setBounds(395, 378, 255, 107);
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo2.png"));
-		lblNewLabel.setBounds(352, 37, 334, 92);
+		lblNewLabel.setBounds(317, 11, 370, 127);
 		contentPane.add(lblNewLabel);
+		setVisible(true);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(342, 26, 322, 92);
 		contentPane.add(lblNewLabel_1);
+		
 	}
 }
