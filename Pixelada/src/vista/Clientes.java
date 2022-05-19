@@ -52,7 +52,7 @@ public class Clientes extends JFrame {
 		setContentPane(contentPane);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo3.png"));
+		lblNewLabel.setIcon(new ImageIcon(Clientes.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -143,18 +143,18 @@ public class Clientes extends JFrame {
 		
 		JButton btnNewButton_1 = new JButton("CREAR");
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		btnNewButton_1.setIcon(new ImageIcon(Clientes.class.getResource("/resources/nuevo.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		
 		JButton btnNewButton_3 = new JButton("MODIFICAR");
-		btnNewButton_3.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\Actualizar.png"));
+		btnNewButton_3.setIcon(new ImageIcon(Clientes.class.getResource("/resources/Actualizar.png")));
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_4 = new JButton("GUARDAR");
-		btnNewButton_4.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\GuardarTodo.png"));
+		btnNewButton_4.setIcon(new ImageIcon(Clientes.class.getResource("/resources/GuardarTodo.png")));
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_5 = new JButton("BORRAR");
@@ -163,7 +163,7 @@ public class Clientes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\eliminar.png"));
+		btnNewButton_5.setIcon(new ImageIcon(Clientes.class.getResource("/resources/eliminar.png")));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBackground(new Color(230, 230, 250));

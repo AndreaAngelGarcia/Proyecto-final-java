@@ -56,7 +56,7 @@ public class Productos extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(498, 11, 227, 72);
-		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo3.png"));
+		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
 		btnNewButton.setBounds(10, 144, 179, 68);
@@ -153,7 +153,7 @@ public class Productos extends JFrame {
 		JButton btnNewButton_1 = new JButton("CREAR");
 		btnNewButton_1.setBounds(211, 404, 128, 52);
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		btnNewButton_1.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -161,12 +161,12 @@ public class Productos extends JFrame {
 		
 		JButton btnNewButton_3 = new JButton("MODIFICAR");
 		btnNewButton_3.setBounds(349, 404, 139, 52);
-		btnNewButton_3.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\Actualizar.png"));
+		btnNewButton_3.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_4 = new JButton("GUARDAR");
 		btnNewButton_4.setBounds(211, 467, 128, 49);
-		btnNewButton_4.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\GuardarTodo.png"));
+		btnNewButton_4.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_5 = new JButton("BORRAR");
@@ -176,7 +176,7 @@ public class Productos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\eliminar.png"));
+		btnNewButton_5.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBackground(new Color(51, 204, 102));

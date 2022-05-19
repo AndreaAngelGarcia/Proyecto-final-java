@@ -43,7 +43,7 @@ public class CrearFactura extends JFrame {
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(462, 11, 214, 76);
-		logo.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo3.png"));
+		logo.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/logo3.png")));
 		logo.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		contentPane.add(logo);
 		
@@ -110,7 +110,7 @@ public class CrearFactura extends JFrame {
 		
 		JButton boton_añadir_cliente = new JButton("");
 		boton_añadir_cliente.setBackground(Color.WHITE);
-		boton_añadir_cliente.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		boton_añadir_cliente.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/nuevo.png")));
 		boton_añadir_cliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new AñadirCliente().setVisible(true);
@@ -138,7 +138,7 @@ public class CrearFactura extends JFrame {
 			}
 		});
 		boton_añadir_producto.setBackground(Color.WHITE);
-		boton_añadir_producto.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		boton_añadir_producto.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/nuevo.png")));
 		boton_añadir_producto.setBounds(287, 313, 57, 53);
 		panel_1.add(boton_añadir_producto);
 	}
