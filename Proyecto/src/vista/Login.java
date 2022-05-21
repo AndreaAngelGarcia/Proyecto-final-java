@@ -1,5 +1,7 @@
 package vista;
 
+import java.util.Scanner;
+import java.util.logging.Logger;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.BorderLayout;
@@ -15,6 +17,9 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
@@ -22,6 +27,9 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private static Scanner sc;
+	private static int intentos;
+	private static String user, pwd;
 	
 	int width= 592;
 	int height = 357;
@@ -80,10 +88,45 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("INICIA SESI\u00D3N");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Principal().setVisible(true);
-				dispose();  //Cerrar pestaña
+				
+				FileReader fr = null;
+			
+				try {
+					int nLineas = 0;
+					int i = 0;
+					String [] usuarios = null;
+					String linea;
+					
+					sc = new Scanner(new File("B:\\Nueva carpeta\\Proyecto-App-java\\usuarios.txt"));
+					File f = new File("B:/usuarios.text");
+					FileReader fr = FileReader(f);
+					BufferedReader br = new BufferedReader(fr);
+					
+					try {
+						
+						while((linea=br.readLine())!=null) {
+							nLineas++;
+						}   }catch (ioException ex) {
+							Logger.getLogger(frmLogin.class.getName().log(level.SEVERE, null, ex));
+						}
+					usuarios = new String[nLineas]; //tamaño del array
+					
+					while(sc.hasNextLine()) {
+						usuarios[i++] = sc.nextLine(); //almacenamos cada linea en una posicion
+					}
+					
+					intentos++;
+					
+					user = txt
+					
+					
+				
+				}catch (FileNotFoundException ex ) {
+					
 			}
-		});
+			
+			});
+		
 		btnNewButton.setBackground(new Color(224, 255, 255));
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton.setBounds(50, 248, 165, 46);
