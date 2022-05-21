@@ -18,6 +18,8 @@ import javax.swing.UIManager;
 import java.awt.SystemColor;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class CrearFactura extends JFrame {
 
@@ -25,6 +27,8 @@ public class CrearFactura extends JFrame {
 	
 	int width = 1126;
 	int height = 573;
+	private JTable table;
+	private JTable table_1;
 
 	
 	public CrearFactura() {
@@ -43,7 +47,7 @@ public class CrearFactura extends JFrame {
 		
 		JLabel logo = new JLabel("");
 		logo.setBounds(462, 11, 214, 76);
-		logo.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo3.png"));
+		logo.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/logo3.png")));
 		logo.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		contentPane.add(logo);
 		
@@ -87,11 +91,11 @@ public class CrearFactura extends JFrame {
 		contentPane.add(btnFactura);
 		
 		JButton Crear_factura = new JButton("CREAR FACTURA");
+		Crear_factura.setForeground(new Color(255, 255, 255));
+		Crear_factura.setBackground(new Color(128, 128, 128));
 		Crear_factura.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\pdf.png"));
 		Crear_factura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Factura().setVisible(true);
-				dispose();  //Cerrar pestaña
 			}
 		});
 		Crear_factura.setBounds(483, 486, 246, 37);
@@ -109,16 +113,34 @@ public class CrearFactura extends JFrame {
 		panel.add(lblNewLabel);
 		
 		JButton boton_añadir_cliente = new JButton("");
+		boton_añadir_cliente.setBounds(258, 310, 57, 56);
 		boton_añadir_cliente.setBackground(Color.WHITE);
-		boton_añadir_cliente.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		boton_añadir_cliente.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/nuevo.png")));
 		boton_añadir_cliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new AñadirCliente().setVisible(true);
 				dispose();  //Cerrar pestaña
 			}
 		});
-		boton_añadir_cliente.setBounds(258, 310, 57, 56);
 		panel.add(boton_añadir_cliente);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(18, 53, 297, 219);
+		panel.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(631, 98, 354, 377);
@@ -138,8 +160,29 @@ public class CrearFactura extends JFrame {
 			}
 		});
 		boton_añadir_producto.setBackground(Color.WHITE);
-		boton_añadir_producto.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		boton_añadir_producto.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/nuevo.png")));
 		boton_añadir_producto.setBounds(287, 313, 57, 53);
 		panel_1.add(boton_añadir_producto);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(23, 52, 306, 239);
+		panel_1.add(scrollPane_1);
+		
+		table_1 = new JTable();
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		scrollPane_1.setViewportView(table_1);
 	}
 }

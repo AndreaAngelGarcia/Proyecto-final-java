@@ -1,17 +1,17 @@
 package beans;
 
-public class Productos {
+public class Producto {
 	private int id_prod;
 	private String nombre;
 	private int precio_venta;
 	private int precio_compra;
 	private int cantidad;
 	
-	public Productos() {
+	public Producto() {
 		
 	}
 	
-	public Productos(int id_prod, String nombre, int precio_venta, int precio_compra, int cantidad) {
+	public Producto(int id_prod, String nombre, int precio_venta, int precio_compra, int cantidad) {
 		this.id_prod = id_prod;
 		this.nombre = nombre;
 		this.precio_venta = precio_venta;
