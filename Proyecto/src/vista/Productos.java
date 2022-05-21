@@ -56,11 +56,11 @@ public class Productos extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(498, 11, 227, 72);
-		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo3.png"));
+		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
 		btnNewButton.setBounds(10, 144, 179, 68);
-		btnNewButton.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\Clientes.png"));
+		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -73,7 +73,7 @@ public class Productos extends JFrame {
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
 		btnNewButton_2.setForeground(SystemColor.textHighlightText);
 		btnNewButton_2.setBounds(10, 256, 179, 68);
-		btnNewButton_2.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\productos.png"));
+		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.setBackground(new Color(105, 105, 105));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -85,7 +85,7 @@ public class Productos extends JFrame {
 		
 		JButton btnFactura = new JButton("FACTURA");
 		btnFactura.setBounds(10, 361, 179, 68);
-		btnFactura.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\report.png"));
+		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CrearFactura().setVisible(true);
@@ -153,7 +153,7 @@ public class Productos extends JFrame {
 		JButton btnNewButton_1 = new JButton("CREAR");
 		btnNewButton_1.setBounds(211, 404, 128, 52);
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\nuevo.png"));
+		btnNewButton_1.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -161,12 +161,12 @@ public class Productos extends JFrame {
 		
 		JButton btnNewButton_3 = new JButton("MODIFICAR");
 		btnNewButton_3.setBounds(349, 404, 139, 52);
-		btnNewButton_3.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\Actualizar.png"));
+		btnNewButton_3.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
 		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_4 = new JButton("GUARDAR");
 		btnNewButton_4.setBounds(211, 467, 128, 49);
-		btnNewButton_4.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\GuardarTodo.png"));
+		btnNewButton_4.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
 		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
 		JButton btnNewButton_5 = new JButton("BORRAR");
@@ -176,7 +176,7 @@ public class Productos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\eliminar.png"));
+		btnNewButton_5.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBackground(new Color(51, 204, 102));
