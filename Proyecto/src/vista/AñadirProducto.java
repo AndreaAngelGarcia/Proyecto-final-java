@@ -29,9 +29,9 @@ public class AñadirProducto extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("ID_PRODUCTO");
+		JLabel lblNewLabel = new JLabel("ID_PROD");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 119, 100, 14);
+		lblNewLabel.setBounds(39, 119, 69, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("CANTIDAD");

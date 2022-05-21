@@ -1,15 +1,15 @@
 package beans;
 
-public class Cliente {
+public class Clientes {
 	private int id_clientes;
 	private String nombre;
 	private String dni;
 	
-	public Cliente() {
+	public Clientes() {
 		
 	}
 	
-	public Cliente(int id_clientes, String nombre, String dni) {
+	public Clientes(int id_clientes, String nombre, String dni) {
 		this.id_clientes = id_clientes;
 		this.nombre = nombre;
 		this.dni = dni;
