@@ -59,6 +59,7 @@ public class Clientes extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBounds(10, 144, 179, 68);
 		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
@@ -72,7 +73,7 @@ public class Clientes extends JFrame {
 		});
 		
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
-		btnNewButton_2.setForeground(SystemColor.textHighlightText);
+		btnNewButton_2.setForeground(Color.BLACK);
 		btnNewButton_2.setBounds(10, 256, 179, 68);
 		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));

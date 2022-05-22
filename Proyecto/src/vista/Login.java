@@ -99,7 +99,7 @@ public class Login extends JFrame {
 					
 					sc = new Scanner(new File("B:\\Nueva carpeta\\Proyecto-App-java\\usuarios.txt"));
 					File f = new File("B:/usuarios.text");
-					FileReader fr = FileReader(f);
+					fr = new FileReader(f);
 					BufferedReader br = new BufferedReader(fr);
 					
 					try {
@@ -117,7 +117,6 @@ public class Login extends JFrame {
 					
 					intentos++;
 					
-					user = txt
 					
 					
 				
@@ -125,7 +124,7 @@ public class Login extends JFrame {
 					
 			}
 			
-			});
+			}});
 		
 		btnNewButton.setBackground(new Color(224, 255, 255));
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
