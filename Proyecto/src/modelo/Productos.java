@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.mysql.cj.xdevapi.Statement;
+
 public class Productos {
 	
 	//CREAR PRODUCTO
@@ -26,7 +28,7 @@ public class Productos {
 	
 	// VISUALIZAR PRODUCTOS
 	
-	public ArrayList<Producto> recogerProductos(){
+	public static ArrayList<Producto> recogerProductos(){
 		// TODO: Hacer la peticion a BBDD para recoger los alumnos
 		
 		ArrayList<Producto> productos = new ArrayList<Producto>();
@@ -65,6 +67,9 @@ public class Productos {
 				+ "precio_compra='"+precio_compra+"', cantidad ='"+cantidad+"' WHERE id_prod = "+id_prod+";");
 		
 	}
+	
+	
+	
 	
 	
 	

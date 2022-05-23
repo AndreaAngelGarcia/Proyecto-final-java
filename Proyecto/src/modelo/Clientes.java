@@ -55,15 +55,15 @@ public class Clientes {
 	
 	// MODIFICAR PRODUCTO
 	public void modificarCliente(Cliente cliente) {
-		int id_prod = cliente.getId_prod();
+		int id_clientes = cliente.getId_clientes();
 		String nombre = cliente.getNombre();
-		String precio_venta = cliente.getPrecio_venta();
-		String precio_compra = cliente.getPrecio_compra();
+		String dni = cliente.getDni();
+		String direccion = cliente.getDireccion();
 		int telefono = cliente.getTelefono();
-		String cantidad = cliente.getCantidad();
+		String correo = cliente.getCorreo();
 		
-		Conexion.ejecutarUpdate("UPDATE productos SET nombre='"+nombre+"', precio_venta='"+precio_venta+"', "
-				+ "precio_compra='"+precio_compra+"', cantidad ='"+cantidad+"' WHERE id_prod = "+id_prod+";");
+		Conexion.ejecutarUpdate("UPDATE productos SET nombre='"+nombre+"', dni='"+dni+"', "
+				+ "direccion='"+direccion+"', telefono ='"+telefono+"', correo ='"+correo+"' WHERE id_clientes = "+id_clientes+";");
 		
 	}
 	
