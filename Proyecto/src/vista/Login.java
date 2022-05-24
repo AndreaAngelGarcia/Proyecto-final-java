@@ -36,7 +36,7 @@ public class Login extends JFrame {
 	
 	public Login() {
 		
-		setSize(width, height);
+		/*setSize(width, height);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //El posicionamiento de la ventana en el medio de la pantalla
         this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,6 +102,6 @@ public class Login extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\camara.png"));
 		lblNewLabel.setOpaque(true);
 		contentPane.add(lblNewLabel);
-		
+		*/
 	}
 }

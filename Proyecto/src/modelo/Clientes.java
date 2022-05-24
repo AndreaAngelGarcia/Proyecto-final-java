@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Clientes {
 	
-	//CREAR PRODUCTO
+	//CREAR CLIENTE
 
-	public void crearCliente(Cliente cliente) {		
+	public void insertarCliente(Cliente cliente) {		
 		int id_clientes = cliente.getId_clientes();;
 		String nombre = cliente.getNombre();;
 		String dni = cliente.getDni();;
@@ -19,13 +19,12 @@ public class Clientes {
 		String correo = cliente.getCorreo();;
 			
 		
-		Conexion.ejecutarUpdate("INSERT INTO PRODUCTOS VALUES ('"+id_clientes+"', '"+nombre+"',"
-				+ " '"+dni+"', '"+direccion+", '"+telefono+"', '"+correo+"');");	
+		Conexion.ejecutarUpdate("INSERT INTO CLIENTES VALUES ('"+id_clientes+"', '"+nombre+"', '"+dni+"', '"+direccion+"', '"+telefono+"', '"+correo+"');");	
 	}
 	
-	// VISUALIZAR PRODUCTOS
+	// VISUALIZAR CLIENTES
 	
-	public ArrayList<Cliente> recogerClientes(){
+	public ArrayList<Cliente> refrescarClientes(){
 		// TODO: Hacer la peticion a BBDD para recoger los alumnos
 		
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -47,13 +46,13 @@ public class Clientes {
 		return clientes;
 	}
 	
-	//BORRAR PRODUCTO	
-	public void borrarCliente(int id_prod) {
-		Conexion.ejecutarUpdate("DELETE FROM PRODUCTOS WHERE id="+id_prod+";");
+	//BORRAR CLIENTE
+	public void borrarCliente(int id_clientes) {
+		Conexion.ejecutarUpdate("DELETE FROM CLIENTES WHERE id_clientes="+id_clientes+";");
 	}
 	
 	
-	// MODIFICAR PRODUCTO
+	// MODIFICAR CLIENTE
 	public void modificarCliente(Cliente cliente) {
 		int id_clientes = cliente.getId_clientes();
 		String nombre = cliente.getNombre();
@@ -62,8 +61,7 @@ public class Clientes {
 		int telefono = cliente.getTelefono();
 		String correo = cliente.getCorreo();
 		
-		Conexion.ejecutarUpdate("UPDATE productos SET nombre='"+nombre+"', dni='"+dni+"', "
-				+ "direccion='"+direccion+"', telefono ='"+telefono+"', correo ='"+correo+"' WHERE id_clientes = "+id_clientes+";");
+		Conexion.ejecutarUpdate("UPDATE CLIENTES SET nombre='"+nombre+"', dni='"+dni+"', direccion='"+direccion+"', telefono ='"+telefono+"', correo ='"+correo+"' WHERE id_clientes = "+id_clientes+";");
 		
 	}
 	

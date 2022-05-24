@@ -26,8 +26,7 @@ public class Productos {
 	
 	// VISUALIZAR PRODUCTOS
 	
-	public static ArrayList<Producto> recogerProductos(){
-		// TODO: Hacer la peticion a BBDD para recoger los alumnos
+	public static ArrayList<Producto> refrescarProductos(){
 		
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM productos;");
@@ -36,8 +35,8 @@ public class Productos {
 			while(resultado.next()) {
 				int id_prod = resultado.getInt("id_prod");
 				String nombre = resultado.getString("nombre");
-				int precio_venta = resultado.getInt("precio venta");
-				int precio_compra = resultado.getInt("precio compra");
+				int precio_venta = resultado.getInt("precio_venta");
+				int precio_compra = resultado.getInt("precio_compra");
 				int cantidad = resultado.getInt("cantidad");
 				productos.add(new Producto(id_prod, nombre, precio_venta, precio_compra, cantidad));
 			}

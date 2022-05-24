@@ -31,9 +31,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import javax.swing.SwingConstants;
 
-public class Productos extends JFrame {
+public class Compra extends JFrame {
 
 	private JPanel PanelFondo;
 	private JTable table;
@@ -46,9 +45,9 @@ public class Productos extends JFrame {
 	int width = 1144;
 	int height = 569;
 
-	public Productos() {
-		
-		setSize(1147, 570);
+	public Compra() {
+
+setSize(1147, 570);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //Posicionamiento de la ventana en el medio de la pantalla
         this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -88,11 +87,10 @@ public class Productos extends JFrame {
 		});
 		
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
-		btnNewButton_2.setForeground(SystemColor.textHighlightText);
+		
 		btnNewButton_2.setBounds(10, 256, 179, 68);
 		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_2.setBackground(new Color(105, 105, 105));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Productos().setVisible(true);
@@ -101,12 +99,15 @@ public class Productos extends JFrame {
 		});
 		
 		JButton btnFactura = new JButton("COMPRAR");
+		btnFactura.setForeground(Color.WHITE);
 		btnFactura.setBounds(10, 361, 179, 68);
 		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
+		btnFactura.setBackground(new Color(105, 105, 105));
 		btnFactura.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				Producto producto = crearProductoDesdeFormulario();
-				new Compra();
+				new Compra(producto);
 				dispose();  //Cerrar pestaña
 			}
 		});
@@ -173,22 +174,6 @@ public class Productos extends JFrame {
 		buttonCrearProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonCrearProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
 		
-		
-		JButton buttonModificarProducto = new JButton("MODIFICAR");
-		buttonModificarProducto.setBounds(377, 404, 145, 52);
-		buttonModificarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
-		buttonModificarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		
-		JButton buttonRefrescarProductos = new JButton("REFRESCAR");
-		buttonRefrescarProductos.setBounds(211, 467, 139, 49);
-		buttonRefrescarProductos.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
-		buttonRefrescarProductos.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		
-		JButton buttonBorrarProducto = new JButton("BORRAR");
-		buttonBorrarProducto.setBounds(377, 467, 145, 49);
-		buttonBorrarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		buttonBorrarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
-		
 		JLabel lblNewLabel_6 = new JLabel("PRODUCTOS");
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
 		lblNewLabel_6.setBounds(87, 11, 103, 39);
@@ -199,10 +184,7 @@ public class Productos extends JFrame {
 		PanelFondo.add(btnNewButton_2);
 		PanelFondo.add(btnFactura);
 		PanelFondo.add(buttonCrearProducto);
-		PanelFondo.add(buttonModificarProducto);
 		PanelFondo.add(panel);
-		PanelFondo.add(buttonRefrescarProductos);
-		PanelFondo.add(buttonBorrarProducto);
 		
 		JLabel fondoAzulOscuro = new JLabel("");
 		fondoAzulOscuro.setBackground(new Color(51, 102, 153));
@@ -221,15 +203,13 @@ public class Productos extends JFrame {
 		PanelFondo.add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("Precio compra");
-		lblNewLabel_10.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_10.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(903, 122, 116, 14);
+		lblNewLabel_10.setBounds(787, 120, 116, 14);
 		PanelFondo.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("Precio venta");
-		lblNewLabel_11.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_11.setBounds(801, 122, 103, 14);
+		lblNewLabel_11.setBounds(902, 121, 103, 14);
 		PanelFondo.add(lblNewLabel_11);
 		
 		JLabel lblNewLabel_12 = new JLabel("Cantidad");
@@ -245,58 +225,10 @@ public class Productos extends JFrame {
 				try {
 					Producto producto = crearProductoDesdeFormulario();
                     new ControladorDatos().crearProducto(producto);
-                    ArrayList<Producto> productos = new ControladorDatos().refrescartodosProductos();
-                    
                 } catch(Exception error) {
                     JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
                     return;
                 }
-			}
-		});
-		
-		buttonModificarProducto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Producto producto = crearProductoDesdeFormulario();
-                    new ControladorDatos().modificarProducto(producto);
-                } catch(Exception error) {
-                    JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
-                    return;
-                }
-			}
-		});
-		
-		buttonBorrarProducto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					int id_prod = Integer.parseInt(textID.getText());
-					new ControladorDatos().borrarProducto(id_prod);
-					
-				} catch(Exception error) {
-					JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
-					return;
-				}
-			}
-		});
-
-		buttonRefrescarProductos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				ArrayList<Producto> productos = new ControladorDatos().refrescartodosProductos();
-				dtm.getDataVector().removeAllElements();
-				dtm.fireTableDataChanged();
-				
-				// Montar los datos recogidos en la tabla
-				for(Producto producto : productos){
-					Object[] fila = new Object[5];
-					fila[0] = producto.getId_prod();
-					fila[1] = producto.getNombre();
-					fila[2] = producto.getPrecio_venta();
-					fila[3] = producto.getPrecio_compra();					
-					fila[4] = producto.getCantidad();
-					
-					dtm.addRow(fila);
-				}
 			}
 		});
 		
