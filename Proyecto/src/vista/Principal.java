@@ -83,14 +83,16 @@ public class Principal extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/resources/logo3.png")));
 		lblNewLabel.setBounds(405, 30, 226, 127);
+		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/resources/logo3.png")));
 		contentPane.add(lblNewLabel);
-		setVisible(true);
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(342, 26, 322, 92);
 		contentPane.add(lblNewLabel_1);
 		
+		
+		setVisible(true);
 	}
 }

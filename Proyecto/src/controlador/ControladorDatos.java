@@ -1,7 +1,7 @@
 package controlador;
 
 import modelo.Productos;
-
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import beans.Producto;
@@ -9,8 +9,9 @@ import beans.Producto;
 public class ControladorDatos {
 	
 	//MÉTODOS PRODUCTOS
-	public static void recogerProductos() {
-		Productos.recogerProductos();
+	public ArrayList<Producto> refrescartodosProductos() {
+		ArrayList<Producto> productos = new Productos().refrescarProductos();
+		return productos;
 	}
 	
 	public void crearProducto(Producto producto) {
@@ -21,5 +22,11 @@ public class ControladorDatos {
 	public void borrarProducto(int id_prod) {
 		new Productos().borrarProducto(id_prod);
 		JOptionPane.showMessageDialog(null, "¡Has borrado correctamente el producto!");
+	}
+
+	public void modificarProducto(Producto producto) {
+		new Productos().modificarProducto(producto);
+		JOptionPane.showMessageDialog(null, "¡Has modificado correctamente el nuevo producto!");
+		
 	}
 }

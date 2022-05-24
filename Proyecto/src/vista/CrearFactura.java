@@ -245,12 +245,13 @@ public class CrearFactura extends JFrame {
 		textField_9.setBounds(107, 231, 161, 20);
 		panel_1.add(textField_9);
 		
-		JLabel lblNewLabel_6_1 = new JLabel("CLIENTES");
+		JLabel lblNewLabel_6_1 = new JLabel("PRODUCTOS");
 		lblNewLabel_6_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
 		lblNewLabel_6_1.setBounds(87, 11, 103, 39);
 		panel_1.add(lblNewLabel_6_1);
 		
 		JButton btnNewButton_1_1 = new JButton("AÑADIR");
+		btnNewButton_1_1.setIcon(new ImageIcon(CrearFactura.class.getResource("/resources/nuevo.png")));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
