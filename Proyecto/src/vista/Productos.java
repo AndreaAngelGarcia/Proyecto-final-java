@@ -184,7 +184,7 @@ public class Productos extends JFrame {
 		buttonModificarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
 		buttonModificarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
-		JButton buttonGuardarProducto = new JButton("GUARDAR");
+		JButton buttonGuardarProducto = new JButton("REFRESCAR");
 		buttonGuardarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -198,6 +198,14 @@ public class Productos extends JFrame {
 		buttonBorrarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonBorrarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					int id_prod = Integer.parseInt(textID.getText());
+					new ControladorDatos().borrarProducto(id_prod);
+
+                    } catch(Exception error) {
+                        JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
+                        return;
+                    }
 			}
 		});
 		buttonBorrarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
@@ -243,15 +251,5 @@ public class Productos extends JFrame {
 		lblNewLabel_7.setBounds(0, 0, 201, 532);
 		lblNewLabel_7.setOpaque(true);
 		contentPane.add(lblNewLabel_7);
-		
-		JButton buttonVisualizarProductos = new JButton("Visualizar productos");
-		buttonVisualizarProductos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ControladorDatos.recogerProductos();
-			}
-		});
-		buttonVisualizarProductos.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
-		buttonVisualizarProductos.setBounds(693, 458, 173, 58);
-		contentPane.add(buttonVisualizarProductos);
 	}
 }

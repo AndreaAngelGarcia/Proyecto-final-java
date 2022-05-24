@@ -49,7 +49,7 @@ public class Productos {
 	
 	//BORRAR PRODUCTO	
 	public void borrarProducto(int id_prod) {
-		Conexion.ejecutarUpdate("DELETE FROM PRODUCTOS WHERE id="+id_prod+";");
+		Conexion.ejecutarUpdate("DELETE FROM PRODUCTOS WHERE id_prod="+id_prod+";");
 	}
 	
 	
