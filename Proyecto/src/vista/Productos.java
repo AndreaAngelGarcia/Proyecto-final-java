@@ -106,7 +106,7 @@ public class Productos extends JFrame {
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Producto producto = crearProductoDesdeFormulario();
-				new Compra();
+				new Compra(producto);
 				dispose();  //Cerrar pestaña
 			}
 		});

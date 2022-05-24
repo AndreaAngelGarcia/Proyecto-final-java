@@ -109,9 +109,9 @@ public class Clientes extends JFrame {
 		btnFactura.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				Cliente cliente = crearClienteDesdeFormulario();
-				new Compra();
-				dispose();  //Cerrar pestaña
+				//Producto producto = crearProductoDesdeFormulario();
+				//new Compra(producto);
+				//dispose();  //Cerrar pestaña
 			}
 		});
 		btnFactura.setFont(new Font("Times New Roman", Font.BOLD, 14));

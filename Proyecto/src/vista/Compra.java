@@ -2,6 +2,8 @@ package vista;
 
 import controlador.ControladorDatos;
 import beans.Producto;
+import beans.Cliente;
+import modelo.Productos;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -36,16 +38,11 @@ public class Compra extends JFrame {
 
 	private JPanel PanelFondo;
 	private JTable table;
-	private JTextField textNombre;
-	private JTextField textPrecio_venta;
-	private JTextField textID;
-	private JTextField textPrecio_compra;
-	private JTextField textCantidad;
 	
 	int width = 1144;
 	int height = 569;
 
-	public Compra() {
+	public Compra(Producto producto) {
 
 setSize(1147, 570);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //Posicionamiento de la ventana en el medio de la pantalla
@@ -61,7 +58,7 @@ setSize(1147, 570);
 		// TABLA
 		DefaultTableModel dtm = new DefaultTableModel();
 		table = new JTable(dtm);
-		table.setBounds(545, 142, 573, 339);		
+		table.setBounds(545, 144, 573, 339);		
 		PanelFondo.add(table);
 		
 		dtm.addColumn("Id_prod");
@@ -93,8 +90,8 @@ setSize(1147, 570);
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Productos().setVisible(true);
-				dispose();  //Cerrar pestaña
+				//new Productos().setVisible(true);
+				//dispose();  //Cerrar pestaña
 			}
 		});
 		
@@ -106,7 +103,7 @@ setSize(1147, 570);
 		btnFactura.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				Producto producto = crearProductoDesdeFormulario();
+				//Producto producto = crearProductoDesdeFormulario();
 				new Compra(producto);
 				dispose();  //Cerrar pestaña
 			}
@@ -119,55 +116,34 @@ setSize(1147, 570);
 		panel.setBackground(new Color(153, 204, 153));
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(36, 61, 77, 30);
-		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nombre");
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(20, 102, 77, 30);
-		panel.add(lblNewLabel_2);
+		// LABEL DE PRODUCTOS
+		JLabel TextID = new JLabel(producto.getId_prod()+"");
+		TextID.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		TextID.setBounds(116, 50, 26, 30);
+		panel.add(TextID);
 		
-		JLabel lblNewLabel_3 = new JLabel("Precio_venta");
-		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(10, 143, 87, 30);
-		panel.add(lblNewLabel_3);
-		
-		textNombre = new JTextField();
-		textNombre.setBounds(107, 108, 161, 20);
+		JLabel textNombre = new JLabel(producto.getNombre());
+		textNombre.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textNombre.setBounds(51, 91, 172, 30);
 		panel.add(textNombre);
-		textNombre.setColumns(10);
 		
-		textPrecio_venta = new JTextField();
-		textPrecio_venta.setBounds(107, 149, 161, 20);
+		JLabel textPrecio_venta = new JLabel(producto.getPrecio_venta()+"");
+		textPrecio_venta.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textPrecio_venta.setBounds(116, 132, 31, 30);
 		panel.add(textPrecio_venta);
-		textPrecio_venta.setColumns(10);
 		
-		textID = new JTextField();
-		textID.setBounds(107, 67, 161, 20);
-		panel.add(textID);
-		textID.setColumns(10);
-		
-		JLabel lblNewLabel_4 = new JLabel("Precio_compra");
-		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(10, 184, 103, 30);
-		panel.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_5 = new JLabel("Cantidad");
-		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(20, 225, 77, 30);
-		panel.add(lblNewLabel_5);
-		
-		textPrecio_compra = new JTextField();
-		textPrecio_compra.setBounds(106, 190, 161, 20);
+		JLabel textPrecio_compra = new JLabel(producto.getPrecio_compra()+"");
+		textPrecio_compra.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textPrecio_compra.setBounds(116, 173, 26, 30);
 		panel.add(textPrecio_compra);
-		textPrecio_compra.setColumns(10);
 		
-		textCantidad = new JTextField();
-		textCantidad.setBounds(107, 231, 161, 20);
+		JLabel textCantidad = new JLabel(producto.getCantidad()+"");
+		textCantidad.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		textCantidad.setBounds(116, 214, 26, 30);
 		panel.add(textCantidad);
-		textCantidad.setColumns(10);
+		
+		setVisible(true);
 		
 		JButton buttonCrearProducto = new JButton("CREAR");
 		buttonCrearProducto.setBounds(211, 404, 139, 52);
@@ -217,54 +193,14 @@ setSize(1147, 570);
 		lblNewLabel_12.setBounds(1029, 115, 89, 27);
 		PanelFondo.add(lblNewLabel_12);
 		
+		JButton btnNewButton_1 = new JButton("COMPRAR");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
+		btnNewButton_1.setBounds(931, 482, 122, 40);
+		PanelFondo.add(btnNewButton_1);
+		
 		
 		/* ACCIONES */
 		
-		buttonCrearProducto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Producto producto = crearProductoDesdeFormulario();
-                    new ControladorDatos().crearProducto(producto);
-                } catch(Exception error) {
-                    JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
-                    return;
-                }
-			}
-		});
-		
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	        	if(table.getSelectedRow() == -1) return;
-	        	int id = (int) table.getValueAt(table.getSelectedRow(), 0);
-	        	String nombre = (String) table.getValueAt(table.getSelectedRow(), 1);
-	        	int precioVenta = (int) table.getValueAt(table.getSelectedRow(), 2);
-	        	int precioCompra = (int) table.getValueAt(table.getSelectedRow(), 3);
-	        	int Cantidad = (int) table.getValueAt(table.getSelectedRow(), 4);
-	        	textID.setText(id+"");
-	        	textNombre.setText(nombre);
-	        	textPrecio_venta.setText(precioVenta+"");
-	        	textPrecio_compra.setText(precioCompra+"");
-	        	textCantidad.setText(Cantidad+"");
-	        }
-	    });
-		
 		
 	}
-
-	private Producto crearProductoDesdeFormulario() {
-		int id_prod = Integer.parseInt(textID.getText());
-        String nombre = textNombre.getText();
-        int precio_venta = Integer.parseInt(textPrecio_venta.getText());
-        int precio_compra = Integer.parseInt(textPrecio_compra.getText());
-        int cantidad = Integer.parseInt(textCantidad.getText());
-        Producto producto = new Producto(id_prod, nombre, precio_venta, precio_compra, cantidad);
-		return producto;
-	}
-	
-	
-	
-	
-	
-	
-	
 }
