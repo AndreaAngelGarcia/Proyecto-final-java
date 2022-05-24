@@ -1,5 +1,8 @@
 package vista;
 
+import controlador.ControladorDatos;
+import beans.Producto;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -12,10 +15,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -31,11 +33,11 @@ import java.awt.Toolkit;
 public class Productos extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textNombre;
+	private JTextField textPrecio_venta;
+	private JTextField textID;
+	private JTextField textPrecio_compra;
+	private JTextField textCantidad;
 	private JTable table;
 	
 	int width = 1144;
@@ -115,20 +117,20 @@ public class Productos extends JFrame {
 		lblNewLabel_3.setBounds(10, 143, 87, 30);
 		panel.add(lblNewLabel_3);
 		
-		textField = new JTextField();
-		textField.setBounds(107, 108, 161, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		textNombre = new JTextField();
+		textNombre.setBounds(107, 108, 161, 20);
+		panel.add(textNombre);
+		textNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(107, 149, 161, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		textPrecio_venta = new JTextField();
+		textPrecio_venta.setBounds(107, 149, 161, 20);
+		panel.add(textPrecio_venta);
+		textPrecio_venta.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(107, 67, 161, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		textID = new JTextField();
+		textID.setBounds(107, 67, 161, 20);
+		panel.add(textID);
+		textID.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Precio_compra");
 		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -140,43 +142,65 @@ public class Productos extends JFrame {
 		lblNewLabel_5.setBounds(20, 225, 77, 30);
 		panel.add(lblNewLabel_5);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(106, 190, 161, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		textPrecio_compra = new JTextField();
+		textPrecio_compra.setBounds(106, 190, 161, 20);
+		panel.add(textPrecio_compra);
+		textPrecio_compra.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(107, 231, 161, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		textCantidad = new JTextField();
+		textCantidad.setBounds(107, 231, 161, 20);
+		panel.add(textCantidad);
+		textCantidad.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("CREAR");
-		btnNewButton_1.setBounds(211, 404, 128, 52);
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton buttonCrearProducto = new JButton("CREAR");
+		buttonCrearProducto.setBounds(211, 404, 128, 52);
+		buttonCrearProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		buttonCrearProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
+		buttonCrearProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					int id_prod = Integer.parseInt(textID.getText());
+                    String nombre = textNombre.getText();
+                    int precio_venta = Integer.parseInt(textPrecio_venta.getText());
+                    int precio_compra = Integer.parseInt(textPrecio_compra.getText());
+                    int cantidad = Integer.parseInt(textCantidad.getText());
+                    Producto producto = new Producto(id_prod, nombre, precio_venta, precio_compra, cantidad);
+
+                    new ControladorDatos().crearProducto(producto);
+
+                    } catch(Exception error) {
+                        JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
+                        return;
+                    }
 			}
 		});
 		
-		JButton btnNewButton_3 = new JButton("MODIFICAR");
-		btnNewButton_3.setBounds(349, 404, 139, 52);
-		btnNewButton_3.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
-		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		
-		JButton btnNewButton_4 = new JButton("GUARDAR");
-		btnNewButton_4.setBounds(211, 467, 128, 49);
-		btnNewButton_4.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
-		btnNewButton_4.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		
-		JButton btnNewButton_5 = new JButton("BORRAR");
-		btnNewButton_5.setBounds(349, 467, 139, 49);
-		btnNewButton_5.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_5.addActionListener(new ActionListener() {
+		JButton buttonModificarProducto = new JButton("MODIFICAR");
+		buttonModificarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
+		buttonModificarProducto.setBounds(349, 404, 139, 52);
+		buttonModificarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
+		buttonModificarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		JButton buttonGuardarProducto = new JButton("GUARDAR");
+		buttonGuardarProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		buttonGuardarProducto.setBounds(211, 467, 128, 49);
+		buttonGuardarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
+		buttonGuardarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		
+		JButton buttonBorrarProducto = new JButton("BORRAR");
+		buttonBorrarProducto.setBounds(349, 467, 139, 49);
+		buttonBorrarProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		buttonBorrarProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		buttonBorrarProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBackground(new Color(51, 204, 102));
@@ -194,18 +218,6 @@ public class Productos extends JFrame {
 		table.setBackground(new Color(204, 204, 204));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
 			},
 			new String[] {
 				"ID", "Nombre", "Precio_venta", "Precio_compra", "Cantidad"
@@ -220,16 +232,26 @@ public class Productos extends JFrame {
 		contentPane.add(btnNewButton);
 		contentPane.add(btnNewButton_2);
 		contentPane.add(btnFactura);
-		contentPane.add(btnNewButton_1);
-		contentPane.add(btnNewButton_3);
+		contentPane.add(buttonCrearProducto);
+		contentPane.add(buttonModificarProducto);
 		contentPane.add(panel);
-		contentPane.add(btnNewButton_4);
-		contentPane.add(btnNewButton_5);
+		contentPane.add(buttonGuardarProducto);
+		contentPane.add(buttonBorrarProducto);
 		
 		JLabel lblNewLabel_7 = new JLabel("");
 		lblNewLabel_7.setBackground(new Color(51, 102, 153));
 		lblNewLabel_7.setBounds(0, 0, 201, 532);
 		lblNewLabel_7.setOpaque(true);
 		contentPane.add(lblNewLabel_7);
+		
+		JButton buttonVisualizarProductos = new JButton("Visualizar productos");
+		buttonVisualizarProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ControladorDatos.recogerProductos();
+			}
+		});
+		buttonVisualizarProductos.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 14));
+		buttonVisualizarProductos.setBounds(693, 458, 173, 58);
+		contentPane.add(buttonVisualizarProductos);
 	}
 }

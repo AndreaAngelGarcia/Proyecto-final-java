@@ -13,16 +13,14 @@ public class Productos {
 	
 	//CREAR PRODUCTO
 
-	public void crearProducto(Producto producto) {
+	public void insertarProducto(Producto producto) {
 		int id_prod = producto.getId_prod();
 		String nombre = producto.getNombre();
 		int precio_venta = producto.getPrecio_venta();
 		int precio_compra = producto.getPrecio_compra();
 		int cantidad = producto.getCantidad();
 
-		Conexion.ejecutarUpdate("INSERT INTO PRODUCTOS VALUES ('"+id_prod+"', '"+nombre+"',"
-				+ " '"+precio_venta+"', '"+precio_compra+", '"+cantidad+"');");
-		
+		Conexion.ejecutarUpdate("INSERT INTO PRODUCTOS (id_prod, nombre, precio_venta, precio_compra, cantidad) VALUES ('"+id_prod+"', '"+nombre+"', '"+precio_venta+"', '"+precio_compra+"', '"+cantidad+"');");
 	}
 	
 	
