@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
 
     static String timeZone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    static String dbName = "sanidad";
+    static String dbName = "pixelada";
     static String host = "localhost";
     static int port = 3306;
     static String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName + timeZone;

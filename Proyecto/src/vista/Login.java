@@ -89,42 +89,8 @@ public class Login extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				FileReader fr = null;
-			
-				try {
-					int nLineas = 0;
-					int i = 0;
-					String [] usuarios = null;
-					String linea;
-					
-					sc = new Scanner(new File("B:\\Nueva carpeta\\Proyecto-App-java\\usuarios.txt"));
-					File f = new File("B:/usuarios.text");
-					fr = new FileReader(f);
-					BufferedReader br = new BufferedReader(fr);
-					
-					try {
-						
-						while((linea=br.readLine())!=null) {
-							nLineas++;
-						}   }catch (ioException ex) {
-							Logger.getLogger(frmLogin.class.getName().log(level.SEVERE, null, ex));
-						}
-					usuarios = new String[nLineas]; //tamaño del array
-					
-					while(sc.hasNextLine()) {
-						usuarios[i++] = sc.nextLine(); //almacenamos cada linea en una posicion
-					}
-					
-					intentos++;
-					
-					
-					
-				
-				}catch (FileNotFoundException ex ) {
-					
-			}
-			
-			}});
+		});
+		
 		
 		btnNewButton.setBackground(new Color(224, 255, 255));
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));

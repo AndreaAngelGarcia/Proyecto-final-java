@@ -83,8 +83,8 @@ public class Principal extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("B:\\Nueva carpeta\\Proyecto-App-java\\logo2.png"));
-		lblNewLabel.setBounds(317, 11, 370, 127);
+		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/resources/logo3.png")));
+		lblNewLabel.setBounds(405, 30, 226, 127);
 		contentPane.add(lblNewLabel);
 		setVisible(true);
 		

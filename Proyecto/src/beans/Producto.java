@@ -7,8 +7,8 @@ public class Producto {
 	private int precio_compra;
 	private int cantidad;
 	
-	public Producto() {
-		
+	public Producto(int id_prod) {
+		this.id_prod = id_prod;
 	}
 	
 	public Producto(int id_prod, String nombre, int precio_venta, int precio_compra, int cantidad) {
