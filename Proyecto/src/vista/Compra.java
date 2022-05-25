@@ -46,9 +46,9 @@ public class Compra extends JFrame {
 	public Compra(Producto producto) {
 
 		setSize(1147, 570);
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //Posicionamiento de la ventana en el medio de la pantalla
+		/*Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //Posicionamiento de la ventana en el medio de la pantalla
         this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/ 
 		
 		setBackground(Color.WHITE);
 		PanelFondo = new JPanel();
@@ -60,7 +60,7 @@ public class Compra extends JFrame {
 		// TABLA
 			DefaultTableModel dtm = new DefaultTableModel();
 			table = new JTable(dtm);
-			table.setBounds(550, 142, 573, 287);		
+			table.setBounds(545, 142, 573, 246);		
 			PanelFondo.add(table);
 			
 			dtm.addColumn("Id_clientes");
@@ -70,7 +70,26 @@ public class Compra extends JFrame {
 			dtm.addColumn("telefono");
 			dtm.addColumn("correo");
 			
+			ArrayList<Cliente> clientes = new ControladorDatos().refrescarClientesCompra();
+			dtm.getDataVector().removeAllElements();
+			dtm.fireTableDataChanged();
 			
+			
+			// Montar los datos recogidos en la tabla
+			for(Cliente cliente1 : clientes){
+				Object[] fila = new Object[6];
+				fila[0] = cliente1.getId_clientes();
+				fila[1] = cliente1.getNombre();
+				fila[2] = cliente1.getDni();					
+				fila[3] = cliente1.getDireccion();
+				fila[4] = cliente1.getTelefono();
+				fila[5] = cliente1.getCorreo();
+				
+				dtm.addRow(fila);
+				
+			}
+			setVisible(true);
+		
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(498, 11, 227, 72);
@@ -84,7 +103,7 @@ public class Compra extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Clientes();
-				dispose();  //Cerrar pestaña
+				//dispose();  //Cerrar pestaña
 			}
 		});
 		
@@ -94,7 +113,7 @@ public class Compra extends JFrame {
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//new Productos().setVisible(true);
+				new Productos();
 				//dispose();  //Cerrar pestaña
 			}
 		});
@@ -108,7 +127,7 @@ public class Compra extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				//Producto producto = crearProductoDesdeFormulario();
-				new Compra(producto);
+				//new Compra(producto);
 				dispose();  //Cerrar pestaña
 			}
 		});
@@ -124,7 +143,7 @@ public class Compra extends JFrame {
 		// LABEL DE PRODUCTOS
 		JLabel TextID = new JLabel(producto.getId_prod()+"");
 		TextID.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		TextID.setBounds(164, 50, 26, 30);
+		TextID.setBounds(164, 50, 47, 30);
 		panel.add(TextID);
 		
 		JLabel textNombre = new JLabel(producto.getNombre());
@@ -134,17 +153,17 @@ public class Compra extends JFrame {
 		
 		JLabel textPrecio_venta = new JLabel(producto.getPrecio_venta()+"");
 		textPrecio_venta.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		textPrecio_venta.setBounds(159, 132, 31, 30);
+		textPrecio_venta.setBounds(159, 132, 68, 30);
 		panel.add(textPrecio_venta);
 		
 		JLabel textPrecio_compra = new JLabel(producto.getPrecio_compra()+"");
 		textPrecio_compra.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		textPrecio_compra.setBounds(164, 173, 26, 30);
+		textPrecio_compra.setBounds(164, 173, 63, 30);
 		panel.add(textPrecio_compra);
 		
 		JLabel textCantidad = new JLabel(producto.getCantidad()+"");
 		textCantidad.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		textCantidad.setBounds(164, 214, 26, 30);
+		textCantidad.setBounds(164, 214, 63, 30);
 		panel.add(textCantidad);
 		
 		setVisible(true);
@@ -152,24 +171,7 @@ public class Compra extends JFrame {
 		JButton buttonCrearProducto = new JButton("A\u00D1ADIR CLIENTE");
 		buttonCrearProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Cliente> clientes = new ControladorDatos().refrescartodosClientes();
-				dtm.getDataVector().removeAllElements();
-				dtm.fireTableDataChanged();
 				
-				
-				// Montar los datos recogidos en la tabla
-				for(Cliente cliente : clientes){
-					Object[] fila = new Object[6];
-					fila[0] = cliente.getId_clientes();
-					fila[1] = cliente.getNombre();
-					fila[2] = cliente.getDni();					
-					fila[3] = cliente.getDireccion();
-					fila[4] = cliente.getTelefono();
-					fila[5] = cliente.getCorreo();
-					
-					dtm.addRow(fila);
-					
-				}
 			}
 		});
 		buttonCrearProducto.setBounds(665, 440, 238, 52);
@@ -242,6 +244,11 @@ public class Compra extends JFrame {
 		PanelFondo.add(lblNewLabel_12);
 		
 		JButton btnNewButton_1 = new JButton("COMPRAR");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton_1.setBounds(931, 482, 122, 40);
 		PanelFondo.add(btnNewButton_1);
@@ -251,4 +258,5 @@ public class Compra extends JFrame {
 		
 		
 	}
+	
 }

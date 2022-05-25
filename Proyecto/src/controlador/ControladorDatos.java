@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Clientes;
 import modelo.Productos;
+import modelo.Compra;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -51,6 +52,16 @@ public class ControladorDatos {
 	public void modificarCliente(Cliente cliente) {
 		new Clientes().modificarCliente(cliente);
 		JOptionPane.showMessageDialog(null, "¡Has modificado correctamente al cliente!");
+		
+	}
+	
+	//MÉTODOS COMPRA
+	public ArrayList<Cliente> refrescarClientesCompra() {
+		ArrayList<Cliente> clientes = new Compra().refrescarCompra();
+		return clientes;
+	}
+	
+	public void CrearFichero () {
 		
 	}
 	

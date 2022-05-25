@@ -329,10 +329,4 @@ public class Productos extends JFrame {
 		return producto;
 	}
 	
-	
-	
-	
-	
-	
-	
 }
