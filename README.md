@@ -2,7 +2,7 @@
 
 ## DAW 2021/2022
 
-### SISTEMA DE FACTURACIÓN DE CLIENTES Y PRODUCTOS
+### SISTEMA DE FACTURACIÓN DE CLIENTES Y PRODUCTOS PIXELADA
 
 1. CLIENTES.
   Se permite crear, modificar, refrescar y eliminar clientes.
