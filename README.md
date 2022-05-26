@@ -9,3 +9,6 @@
   
 2. PRODUCTOS.
   Se permite crear, modificar, refrescar y eliminar productos.
+
+3. FACTURA
+  Añadimos el producto que queremos desde la vista Productos y le damos a comprar, a continuación podemos crear una factura con los datos de producto.
