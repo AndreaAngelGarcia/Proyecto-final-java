@@ -101,7 +101,7 @@ public class Productos extends JFrame {
 		});
 		
 		JButton btnFactura = new JButton("COMPRAR");
-		btnFactura.setBounds(767, 461, 151, 58);
+		btnFactura.setBounds(767, 461, 170, 58);
 		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
