@@ -61,8 +61,24 @@ public class ControladorDatos {
 		return clientes;
 	}
 	
-	public void CrearFichero () {
-		
+	public void recogerDatos() {
+		/*new Compra().recogerDatos();*/
+	}
+	
+	public void crearFichero () {
+		new Compra().crearFichero();
+	}
+	
+	public void borrarFichero () {
+		new Compra().borrarFichero();
+	}
+	
+	public void escribirFichero () {
+		new Compra().escribirFichero();
+	}
+	
+	public void leerFichero () {
+		new Compra().leerFichero();
 	}
 	
 }

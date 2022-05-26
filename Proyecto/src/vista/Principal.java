@@ -53,7 +53,7 @@ public class Principal extends JFrame {
 				dispose();  //Cerrar pestaña
 			}
 		});
-		btnClientes.setBounds(96, 183, 293, 107);
+		btnClientes.setBounds(108, 144, 405, 212);
 		contentPane.add(btnClientes);
 		
 		JButton btnNewButton_1 = new JButton("PRODUCTOS");
@@ -66,24 +66,11 @@ public class Principal extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_1.setBounds(641, 183, 293, 107);
+		btnNewButton_1.setBounds(600, 263, 405, 221);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_3 = new JButton("FACTURA");
-		btnNewButton_3.setForeground(SystemColor.textHighlightText);
-		btnNewButton_3.setBackground(SystemColor.textInactiveText);
-		btnNewButton_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new CrearFactura().setVisible(true);
-				dispose();  //Cerrar pestaña
-			}
-		});
-		btnNewButton_3.setBounds(395, 378, 255, 107);
-		contentPane.add(btnNewButton_3);
-		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(405, 30, 226, 127);
+		lblNewLabel.setBounds(438, 6, 226, 127);
 		lblNewLabel.setIcon(new ImageIcon(Principal.class.getResource("/resources/logo3.png")));
 		contentPane.add(lblNewLabel);
 		

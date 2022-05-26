@@ -64,6 +64,8 @@ public class Productos {
 				+ "precio_compra='"+precio_compra+"', cantidad ='"+cantidad+"' WHERE id_prod = "+id_prod+";");
 		
 	}
+
+
 	
 	
 	

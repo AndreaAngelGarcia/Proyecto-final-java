@@ -76,6 +76,7 @@ public class Productos extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setBounds(10, 166, 179, 68);
 		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
@@ -92,7 +93,7 @@ public class Productos extends JFrame {
 		btnNewButton_2.setBounds(10, 303, 179, 68);
 		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_2.setBackground(new Color(105, 105, 105));
+		btnNewButton_2.setBackground(Color.DARK_GRAY);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Productos().setVisible(true);
@@ -172,7 +173,6 @@ public class Productos extends JFrame {
 		buttonCrearProducto.setBounds(211, 404, 139, 52);
 		buttonCrearProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonCrearProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
-		
 		
 		JButton buttonModificarProducto = new JButton("MODIFICAR");
 		buttonModificarProducto.setBounds(377, 404, 145, 52);

@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorDatos;
 import beans.Cliente;
+import beans.Producto;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -78,6 +79,8 @@ public class Clientes extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setBounds(10, 166, 179, 68);
 		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
@@ -90,11 +93,11 @@ public class Clientes extends JFrame {
 		});
 		
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
-		btnNewButton_2.setForeground(SystemColor.textHighlightText);
+		btnNewButton_2.setForeground(Color.BLACK);
 		btnNewButton_2.setBounds(10, 303, 179, 68);
 		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_2.setBackground(new Color(105, 105, 105));
+		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Productos().setVisible(true);
@@ -107,9 +110,9 @@ public class Clientes extends JFrame {
 		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// = crearProductoDesdeFormulario();
+				//Cliente cliente = crearClienteDesdeFormulario();
 				//new Compra(producto);
-				//dispose();  //Cerrar pestaña
+				//dispose();  
 			}
 		});
 		btnFactura.setFont(new Font("Times New Roman", Font.BOLD, 14));
