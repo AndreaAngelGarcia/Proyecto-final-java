@@ -51,7 +51,6 @@ public class Clientes {
 		Conexion.ejecutarUpdate("DELETE FROM CLIENTES WHERE id_clientes="+id_clientes+";");
 	}
 	
-	
 	// MODIFICAR CLIENTE
 	public void modificarCliente(Cliente cliente) {
 		int id_clientes = cliente.getId_clientes();
@@ -61,7 +60,7 @@ public class Clientes {
 		int telefono = cliente.getTelefono();
 		String correo = cliente.getCorreo();
 		
-		Conexion.ejecutarUpdate("UPDATE CLIENTES SET nombre='"+nombre+"', dni='"+dni+"', direccion='"+direccion+"', telefono ='"+telefono+"', correo ='"+correo+"' WHERE id_clientes = "+id_clientes+";");
+		Conexion.ejecutarUpdate("UPDATE CLIENTES SET nombre='"+nombre+"', dni='"+dni+"', direccion='"+direccion+"', telefono ='"+telefono+"', correo ='"+correo+"' WHERE id_clientes = '"+id_clientes+"';");
 		
 	}
 	

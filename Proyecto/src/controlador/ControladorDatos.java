@@ -61,9 +61,6 @@ public class ControladorDatos {
 		return clientes;
 	}
 	
-	public void recogerDatos() {
-		/*new Compra().recogerDatos();*/
-	}
 	
 	public void crearFichero (String nombre, String precio_venta, String precio_compra, String cantidad) {
 		new Compra().crearFichero(nombre, precio_venta, precio_compra, cantidad);
@@ -72,14 +69,6 @@ public class ControladorDatos {
 	
 	public void borrarFichero () {
 		new Compra().borrarFichero();
-	}
-	
-	public void escribirFichero () {
-		new Compra().escribirFichero();
-	}
-	
-	public void leerFichero () {
-		new Compra().leerFichero();
 	}
 	
 }

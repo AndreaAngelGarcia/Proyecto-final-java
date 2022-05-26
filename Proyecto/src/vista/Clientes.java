@@ -2,7 +2,6 @@ package vista;
 
 import controlador.ControladorDatos;
 import beans.Cliente;
-import beans.Producto;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -47,6 +46,7 @@ public class Clientes extends JFrame {
 	int width = 1144;
 	int height = 569;
 	private JTextField textCorreo;
+	private JButton buttonRefrescarClientes;
 
 	public Clientes() {
 		
@@ -67,110 +67,113 @@ public class Clientes extends JFrame {
 		table.setBounds(550, 111, 573, 339);		
 		PanelFondo.add(table);
 		
-		dtm.addColumn("Id_clientes");
+		dtm.addColumn("ID");
 		dtm.addColumn("Nombre");
-		dtm.addColumn("Dni");
-		dtm.addColumn("Dirección");
-		dtm.addColumn("Teléfono");
+		dtm.addColumn("DNI");
+		dtm.addColumn("Direccion");
+		dtm.addColumn("Telefono");
 		dtm.addColumn("Correo");
 		
+		//LABEL CON LOGO 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(482, 0, 227, 72);
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
-		JButton btnNewButton = new JButton("CLIENTES");
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(10, 166, 179, 68);
-		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
+		//BOTÓN CLIENTES
+		JButton btnClientes = new JButton("CLIENTES");
+		btnClientes.setForeground(Color.WHITE);
+		btnClientes.setBackground(Color.DARK_GRAY);
+		btnClientes.setBounds(10, 166, 179, 68);
+		btnClientes.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnClientes.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Clientes().setVisible(true);
 				dispose();  //Cerrar pestaña
 			}
 		});
 		
-		JButton btnNewButton_2 = new JButton("PRODUCTOS");
-		btnNewButton_2.setForeground(Color.BLACK);
-		btnNewButton_2.setBounds(10, 303, 179, 68);
-		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
-		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
-		btnNewButton_2.addActionListener(new ActionListener() {
+		//BOTÓN PRODUCTOS
+		JButton btnProductos = new JButton("PRODUCTOS");
+		btnProductos.setForeground(Color.BLACK);
+		btnProductos.setBounds(10, 303, 179, 68);
+		btnProductos.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
+		btnProductos.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnProductos.setBackground(Color.LIGHT_GRAY);
+		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Productos().setVisible(true);
 				dispose();  //Cerrar pestaña
 			}
 		});
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(228, 122, 277, 271);
-		panel.setBackground(new Color(153, 204, 153));
-		panel.setLayout(null);
+		JPanel panelProductos = new JPanel();
+		panelProductos.setBounds(228, 122, 277, 271);
+		panelProductos.setBackground(new Color(153, 204, 153));
+		panelProductos.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID");
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(33, 32, 77, 30);
-		panel.add(lblNewLabel_1);
+		JLabel lblID = new JLabel("ID");
+		lblID.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblID.setBounds(36, 43, 77, 30);
+		panelProductos.add(lblID);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nombre");
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(33, 73, 77, 30);
-		panel.add(lblNewLabel_2);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNombre.setBounds(20, 70, 77, 30);
+		panelProductos.add(lblNombre);
 		
-		JLabel lblNewLabel_3 = new JLabel("DNI");
-		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(30, 114, 87, 30);
-		panel.add(lblNewLabel_3);
+		JLabel lblDni = new JLabel("Dni");
+		lblDni.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblDni.setBounds(36, 107, 87, 30);
+		panelProductos.add(lblDni);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(107, 79, 161, 20);
-		panel.add(textNombre);
+		textNombre.setBounds(107, 76, 161, 20);
+		panelProductos.add(textNombre);
 		textNombre.setColumns(10);
 		
 		textDni = new JTextField();
-		textDni.setBounds(107, 120, 161, 20);
-		panel.add(textDni);
+		textDni.setBounds(107, 108, 161, 20);
+		panelProductos.add(textDni);
 		textDni.setColumns(10);
 		
 		textID = new JTextField();
-		textID.setBounds(107, 38, 161, 20);
-		panel.add(textID);
+		textID.setBounds(107, 49, 161, 20);
+		panelProductos.add(textID);
 		textID.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Direcci\u00F3n");
-		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(20, 155, 103, 30);
-		panel.add(lblNewLabel_4);
+		JLabel lblDireccion = new JLabel("Direccion");
+		lblDireccion.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblDireccion.setBounds(20, 147, 103, 30);
+		panelProductos.add(lblDireccion);
 		
-		JLabel lblNewLabel_5 = new JLabel("Tel\u00E9fono");
-		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(20, 196, 77, 30);
-		panel.add(lblNewLabel_5);
+		JLabel lblCorreo = new JLabel("Correo");
+		lblCorreo.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblCorreo.setBounds(20, 225, 77, 30);
+		panelProductos.add(lblCorreo);
 		
 		textDireccion = new JTextField();
-		textDireccion.setBounds(107, 161, 161, 20);
-		panel.add(textDireccion);
+		textDireccion.setBounds(107, 153, 161, 20);
+		panelProductos.add(textDireccion);
 		textDireccion.setColumns(10);
 		
 		textTelefono = new JTextField();
-		textTelefono.setBounds(107, 202, 161, 20);
-		panel.add(textTelefono);
+		textTelefono.setBounds(107, 190, 161, 20);
+		panelProductos.add(textTelefono);
 		textTelefono.setColumns(10);
 		
 		JButton buttonCrearCliente = new JButton("CREAR");
 		buttonCrearCliente.setBounds(211, 404, 139, 52);
 		buttonCrearCliente.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonCrearCliente.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
-			
+		
 		JButton buttonModificarCliente = new JButton("MODIFICAR");
 		buttonModificarCliente.setBounds(377, 404, 145, 52);
 		buttonModificarCliente.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
 		buttonModificarCliente.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		
-		JButton buttonRefrescarClientes = new JButton("REFRESCAR");
+		buttonRefrescarClientes = new JButton("REFRESCAR");
 		buttonRefrescarClientes.setBounds(211, 467, 139, 49);
 		buttonRefrescarClientes.setIcon(new ImageIcon(Productos.class.getResource("/resources/GuardarTodo.png")));
 		buttonRefrescarClientes.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -180,27 +183,27 @@ public class Clientes extends JFrame {
 		buttonBorrarCliente.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonBorrarCliente.setIcon(new ImageIcon(Productos.class.getResource("/resources/eliminar.png")));
 		
-		JLabel lblClientes = new JLabel("CLIENTES");
-		lblClientes.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
-		lblClientes.setBounds(93, 0, 103, 39);
-		panel.add(lblClientes);
+		JLabel lblNewLabel_6 = new JLabel("CLIENTES");
+		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
+		lblNewLabel_6.setBounds(87, 0, 103, 39);
+		panelProductos.add(lblNewLabel_6);
 		PanelFondo.setLayout(null);
 		PanelFondo.add(lblNewLabel);
-		PanelFondo.add(btnNewButton);
-		PanelFondo.add(btnNewButton_2);
+		PanelFondo.add(btnClientes);
+		PanelFondo.add(btnProductos);
 		PanelFondo.add(buttonCrearCliente);
 		PanelFondo.add(buttonModificarCliente);
-		PanelFondo.add(panel);
-		
-		JLabel lblNewLabel_7 = new JLabel("Correo");
-		lblNewLabel_7.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_7.setBounds(20, 245, 67, 14);
-		panel.add(lblNewLabel_7);
+		PanelFondo.add(panelProductos);
 		
 		textCorreo = new JTextField();
-		textCorreo.setBounds(107, 243, 161, 20);
-		panel.add(textCorreo);
+		textCorreo.setBounds(107, 231, 160, 20);
+		panelProductos.add(textCorreo);
 		textCorreo.setColumns(10);
+		
+		JLabel lblTelefono = new JLabel("Telefono");
+		lblTelefono.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblTelefono.setBounds(20, 188, 87, 26);
+		panelProductos.add(lblTelefono);
 		PanelFondo.add(buttonRefrescarClientes);
 		PanelFondo.add(buttonBorrarCliente);
 		
@@ -217,30 +220,30 @@ public class Clientes extends JFrame {
 		
 		JLabel lblNewLabel_9 = new JLabel("Nombre");
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(658, 78, 58, 25);
+		lblNewLabel_9.setBounds(669, 81, 65, 25);
 		PanelFondo.add(lblNewLabel_9);
 		
-		JLabel lblNewLabel_10 = new JLabel("Direcci\u00F3n");
+		JLabel lblNewLabel_10 = new JLabel("Direccion");
 		lblNewLabel_10.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_10.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(823, 86, 116, 14);
+		lblNewLabel_10.setBounds(843, 88, 116, 14);
 		PanelFondo.add(lblNewLabel_10);
 		
-		JLabel lblNewLabel_11 = new JLabel("DNI");
+		JLabel lblNewLabel_11 = new JLabel("Dni");
 		lblNewLabel_11.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_11.setBounds(746, 86, 103, 14);
+		lblNewLabel_11.setBounds(763, 80, 103, 22);
 		PanelFondo.add(lblNewLabel_11);
 		
-		JLabel lblNewLabel_12 = new JLabel("Telefono");
+		JLabel lblNewLabel_12 = new JLabel("Correo");
 		lblNewLabel_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(936, 78, 89, 27);
+		lblNewLabel_12.setBounds(1044, 80, 89, 27);
 		PanelFondo.add(lblNewLabel_12);
 		
-		JLabel lblNewLabel_6 = new JLabel("Correo");
-		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_6.setBounds(1035, 80, 72, 20);
-		PanelFondo.add(lblNewLabel_6);
+		JLabel lblNewLabel_1 = new JLabel("Tel\u00E9fono");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		lblNewLabel_1.setBounds(947, 86, 74, 14);
+		PanelFondo.add(lblNewLabel_1);
 		
 		
 		/* ACCIONES */
@@ -260,7 +263,7 @@ public class Clientes extends JFrame {
 						fila[0] = cliente1.getId_clientes();
 						fila[1] = cliente1.getNombre();
 						fila[2] = cliente1.getDni();
-						fila[3] = cliente1.getDireccion();
+						fila[3] = cliente1.getDireccion();					
 						fila[4] = cliente1.getTelefono();
 						fila[5] = cliente1.getCorreo();
 						
@@ -290,7 +293,7 @@ public class Clientes extends JFrame {
 						fila[0] = cliente1.getId_clientes();
 						fila[1] = cliente1.getNombre();
 						fila[2] = cliente1.getDni();
-						fila[3] = cliente1.getDireccion();
+						fila[3] = cliente1.getDireccion();					
 						fila[4] = cliente1.getTelefono();
 						fila[5] = cliente1.getCorreo();
 						
@@ -306,10 +309,12 @@ public class Clientes extends JFrame {
 		buttonBorrarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					int id_prod = Integer.parseInt(textID.getText());
-					new ControladorDatos().borrarProducto(id_prod);
+					int id_clientes = Integer.parseInt(textID.getText());
+					new ControladorDatos().borrarCliente(id_clientes);
 					
 					ArrayList<Cliente> clientes = new ControladorDatos().refrescartodosClientes();
+					
+					//Refrescar la tabla automaticamente despues de borrar
 					dtm.getDataVector().removeAllElements();
 					dtm.fireTableDataChanged();
 					for(Cliente cliente1 : clientes){
@@ -317,13 +322,12 @@ public class Clientes extends JFrame {
 						fila[0] = cliente1.getId_clientes();
 						fila[1] = cliente1.getNombre();
 						fila[2] = cliente1.getDni();
-						fila[3] = cliente1.getDireccion();
+						fila[3] = cliente1.getDireccion();					
 						fila[4] = cliente1.getTelefono();
 						fila[5] = cliente1.getCorreo();
 						
 						dtm.addRow(fila);
 					}
-					
 				} catch(Exception error) {
 					JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
 					return;
@@ -344,7 +348,7 @@ public class Clientes extends JFrame {
 					fila[0] = cliente.getId_clientes();
 					fila[1] = cliente.getNombre();
 					fila[2] = cliente.getDni();
-					fila[3] = cliente.getDireccion();
+					fila[3] = cliente.getDireccion();					
 					fila[4] = cliente.getTelefono();
 					fila[5] = cliente.getCorreo();
 					
@@ -356,18 +360,18 @@ public class Clientes extends JFrame {
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 	        public void valueChanged(ListSelectionEvent event) {
 	        	if(table.getSelectedRow() == -1) return;
-	        	int id_clientes = (int) table.getValueAt(table.getSelectedRow(), 0);
+	        	int id = (int) table.getValueAt(table.getSelectedRow(), 0);
 	        	String nombre = (String) table.getValueAt(table.getSelectedRow(), 1);
 	        	String dni = (String) table.getValueAt(table.getSelectedRow(), 2);
 	        	String direccion = (String) table.getValueAt(table.getSelectedRow(), 3);
 	        	int telefono = (int) table.getValueAt(table.getSelectedRow(), 4);
 	        	String correo = (String) table.getValueAt(table.getSelectedRow(), 5);
-	        	textID.setText(id_clientes+"");
+	        	textID.setText(id+"");
 	        	textNombre.setText(nombre);
-	        	textDni.setText(dni);
-	        	textDireccion.setText(direccion);
+	        	textDni.setText(dni+"");
+	        	textDireccion.setText(direccion+"");
 	        	textTelefono.setText(telefono+"");
-	        	textCorreo.setText(correo);
+	        	textCorreo.setText(correo+"");
 	        }
 	    });
 		
@@ -376,12 +380,14 @@ public class Clientes extends JFrame {
 
 	private Cliente crearClienteDesdeFormulario() {
 		int id_clientes = Integer.parseInt(textID.getText());
-        String nombre = textNombre.getText();
-        String dni = textDni.getText();
-        String direccion = textDireccion.getText();
-        int telefono = Integer.parseInt(textTelefono.getText());
-        String correo = textDireccion.getText();
-        Cliente cliente = new Cliente(id_clientes, nombre, dni, direccion, telefono, correo);
+		String nombre = textNombre.getText();;
+		String dni = textDni.getText();
+		String direccion = textDireccion.getText();
+		int telefono = Integer.parseInt(textTelefono.getText());
+		String correo = textCorreo.getText();
+		
+		Cliente cliente = new Cliente(id_clientes, nombre, dni, direccion, telefono, correo);
 		return cliente;
+		
 	}
 }

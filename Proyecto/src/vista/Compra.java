@@ -38,15 +38,17 @@ import java.awt.Toolkit;
 public class Compra extends JFrame {
 
 	private JPanel PanelFondo;
-	private JTable table;
 	
 	int width = 1144;
 	int height = 569;
 
 	public Compra(Producto producto) {
 
+		//TAMAÑO PANTALLA
 		setSize(1021, 562);
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     //Posicionamiento de la ventana en el medio de la pantalla
+		
+		//POSICIONAMIENTO DE LA VENTANA EN EL MEDIO DE LA PANTALLA
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();     
         this.setLocation(dim.width/2-width/2, dim.height/2-height/2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -59,9 +61,6 @@ public class Compra extends JFrame {
 		
 		// TABLA
 			DefaultTableModel dtm = new DefaultTableModel();
-			table = new JTable(dtm);
-			table.setBounds(820, 167, 269, 239);		
-			PanelFondo.add(table);
 			
 			dtm.addColumn("Id_clientes");
 			dtm.addColumn("Nombre");
@@ -92,7 +91,7 @@ public class Compra extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(742, 252, 227, 72);
+		lblNewLabel.setBounds(770, 188, 227, 72);
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
@@ -120,7 +119,7 @@ public class Compra extends JFrame {
 		
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(339, 180, 322, 271);
+		panel.setBounds(318, 95, 416, 271);
 		panel.setBackground(new Color(153, 204, 153));
 		panel.setLayout(null);
 		
@@ -128,12 +127,12 @@ public class Compra extends JFrame {
 		// LABEL DE PRODUCTOS
 		JLabel TextID = new JLabel(producto.getId_prod()+"");
 		TextID.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		TextID.setBounds(196, 50, 47, 30);
+		TextID.setBounds(200, 50, 47, 30);
 		panel.add(TextID);
 		
 		JLabel textNombre = new JLabel(producto.getNombre());
 		textNombre.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		textNombre.setBounds(173, 91, 172, 30);
+		textNombre.setBounds(195, 91, 172, 30);
 		panel.add(textNombre);
 		
 		JLabel textPrecio_venta = new JLabel(producto.getPrecio_venta()+"");
@@ -154,8 +153,8 @@ public class Compra extends JFrame {
 		setVisible(true);
 		
 		JLabel lblNewLabel_6 = new JLabel("PRODUCTOS");
-		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
-		lblNewLabel_6.setBounds(83, 0, 103, 39);
+		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 19));
+		lblNewLabel_6.setBounds(140, 11, 156, 39);
 		panel.add(lblNewLabel_6);
 		PanelFondo.setLayout(null);
 		PanelFondo.add(lblNewLabel);
@@ -165,27 +164,27 @@ public class Compra extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("ID");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(31, 59, 26, 14);
+		lblNewLabel_1.setBounds(58, 59, 26, 14);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nombre");
 		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(27, 99, 76, 14);
+		lblNewLabel_2.setBounds(44, 99, 76, 14);
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Precio_venta");
 		lblNewLabel_3.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(10, 132, 109, 23);
+		lblNewLabel_3.setBounds(31, 136, 109, 23);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Precio_compra");
 		lblNewLabel_4.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(10, 182, 109, 14);
+		lblNewLabel_4.setBounds(22, 181, 109, 14);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Cantidad");
 		lblNewLabel_5.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_5.setBounds(10, 223, 93, 14);
+		lblNewLabel_5.setBounds(47, 222, 93, 14);
 		panel.add(lblNewLabel_5);
 		
 		JLabel fondoAzulOscuro = new JLabel("");
@@ -197,13 +196,8 @@ public class Compra extends JFrame {
 		JButton btnRealizarFactura = new JButton("REALIZAR FACTURA");
 		
 		btnRealizarFactura.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
-		btnRealizarFactura.setBounds(367, 462, 227, 52);
+		btnRealizarFactura.setBounds(408, 404, 227, 52);
 		PanelFondo.add(btnRealizarFactura);
-		
-		JLabel lblNewLabel_8 = new JLabel("SELECCIONA EL CLIENTE");
-		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblNewLabel_8.setBounds(349, 128, 277, 41);
-		PanelFondo.add(lblNewLabel_8);
 		
 		
 		/* ACCIONES */

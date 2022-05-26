@@ -53,7 +53,7 @@ public class Principal extends JFrame {
 				dispose();  //Cerrar pestaña
 			}
 		});
-		btnClientes.setBounds(108, 144, 405, 212);
+		btnClientes.setBounds(144, 144, 338, 160);
 		contentPane.add(btnClientes);
 		
 		JButton btnNewButton_1 = new JButton("PRODUCTOS");
@@ -66,7 +66,7 @@ public class Principal extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnNewButton_1.setBounds(600, 263, 405, 221);
+		btnNewButton_1.setBounds(617, 309, 332, 160);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("");
