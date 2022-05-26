@@ -62,7 +62,7 @@ public class Productos extends JFrame {
 		// TABLA
 		DefaultTableModel dtm = new DefaultTableModel();
 		table = new JTable(dtm);
-		table.setBounds(545, 142, 573, 339);		
+		table.setBounds(550, 111, 573, 339);		
 		PanelFondo.add(table);
 		
 		dtm.addColumn("Id_prod");
@@ -72,11 +72,11 @@ public class Productos extends JFrame {
 		dtm.addColumn("Cantidad");
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(498, 11, 227, 72);
+		lblNewLabel.setBounds(482, 0, 227, 72);
 		lblNewLabel.setIcon(new ImageIcon(Productos.class.getResource("/resources/logo3.png")));
 		
 		JButton btnNewButton = new JButton("CLIENTES");
-		btnNewButton.setBounds(10, 144, 179, 68);
+		btnNewButton.setBounds(10, 166, 179, 68);
 		btnNewButton.setIcon(new ImageIcon(Productos.class.getResource("/resources/Clientes.png")));
 		
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
@@ -89,7 +89,7 @@ public class Productos extends JFrame {
 		
 		JButton btnNewButton_2 = new JButton("PRODUCTOS");
 		btnNewButton_2.setForeground(SystemColor.textHighlightText);
-		btnNewButton_2.setBounds(10, 256, 179, 68);
+		btnNewButton_2.setBounds(10, 303, 179, 68);
 		btnNewButton_2.setIcon(new ImageIcon(Productos.class.getResource("/resources/productos.png")));
 		btnNewButton_2.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		btnNewButton_2.setBackground(new Color(105, 105, 105));
@@ -101,7 +101,7 @@ public class Productos extends JFrame {
 		});
 		
 		JButton btnFactura = new JButton("COMPRAR");
-		btnFactura.setBounds(10, 361, 179, 68);
+		btnFactura.setBounds(767, 461, 151, 58);
 		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
 		btnFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -212,29 +212,29 @@ public class Productos extends JFrame {
 		
 		JLabel lblNewLabel_8 = new JLabel("ID");
 		lblNewLabel_8.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(595, 114, 20, 27);
+		lblNewLabel_8.setBounds(595, 80, 20, 27);
 		PanelFondo.add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Nombre");
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(696, 115, 58, 25);
+		lblNewLabel_9.setBounds(694, 81, 58, 25);
 		PanelFondo.add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("Precio compra");
 		lblNewLabel_10.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_10.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(903, 122, 116, 14);
+		lblNewLabel_10.setBounds(905, 88, 116, 14);
 		PanelFondo.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("Precio venta");
 		lblNewLabel_11.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel_11.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_11.setBounds(801, 122, 103, 14);
+		lblNewLabel_11.setBounds(792, 88, 103, 14);
 		PanelFondo.add(lblNewLabel_11);
 		
 		JLabel lblNewLabel_12 = new JLabel("Cantidad");
 		lblNewLabel_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(1029, 115, 89, 27);
+		lblNewLabel_12.setBounds(1031, 80, 89, 27);
 		PanelFondo.add(lblNewLabel_12);
 		
 		
@@ -246,6 +246,20 @@ public class Productos extends JFrame {
 					Producto producto = crearProductoDesdeFormulario();
                     new ControladorDatos().crearProducto(producto);
                     ArrayList<Producto> productos = new ControladorDatos().refrescartodosProductos();
+                    
+                    //Refrescar la tabla automaticamente despues de crear
+					dtm.getDataVector().removeAllElements();
+					dtm.fireTableDataChanged();
+					for(Producto producto1 : productos){
+						Object[] fila = new Object[5];
+						fila[0] = producto1.getId_prod();
+						fila[1] = producto1.getNombre();
+						fila[2] = producto1.getPrecio_venta();
+						fila[3] = producto1.getPrecio_compra();					
+						fila[4] = producto1.getCantidad();
+						
+						dtm.addRow(fila);
+					}
                     
                 } catch(Exception error) {
                     JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
@@ -259,6 +273,22 @@ public class Productos extends JFrame {
 				try {
 					Producto producto = crearProductoDesdeFormulario();
                     new ControladorDatos().modificarProducto(producto);
+                    
+                    ArrayList<Producto> productos = new ControladorDatos().refrescartodosProductos();
+                    
+                    //Refrescar la tabla automaticamente despues de modificar
+					dtm.getDataVector().removeAllElements();
+					dtm.fireTableDataChanged();
+					for(Producto producto1 : productos){
+						Object[] fila = new Object[5];
+						fila[0] = producto1.getId_prod();
+						fila[1] = producto1.getNombre();
+						fila[2] = producto1.getPrecio_venta();
+						fila[3] = producto1.getPrecio_compra();					
+						fila[4] = producto1.getCantidad();
+						
+						dtm.addRow(fila);
+					}
                 } catch(Exception error) {
                     JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");
                     return;
@@ -271,6 +301,20 @@ public class Productos extends JFrame {
 				try {
 					int id_prod = Integer.parseInt(textID.getText());
 					new ControladorDatos().borrarProducto(id_prod);
+					
+					ArrayList<Producto> productos = new ControladorDatos().refrescartodosProductos();
+					dtm.getDataVector().removeAllElements();
+					dtm.fireTableDataChanged();
+					for(Producto producto : productos){
+						Object[] fila = new Object[5];
+						fila[0] = producto.getId_prod();
+						fila[1] = producto.getNombre();
+						fila[2] = producto.getPrecio_venta();
+						fila[3] = producto.getPrecio_compra();					
+						fila[4] = producto.getCantidad();
+						
+						dtm.addRow(fila);
+					}
 					
 				} catch(Exception error) {
 					JOptionPane.showMessageDialog(null, "Introduce los datos correctamente");

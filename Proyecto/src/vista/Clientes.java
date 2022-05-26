@@ -42,10 +42,11 @@ public class Clientes extends JFrame {
 	private JTextField textID;
 	private JTextField textDireccion;
 	private JTextField textTelefono;
+	private JTextField textCorreo;
 	
 	int width = 1144;
 	int height = 569;
-	private JTextField textCorreo;
+	
 
 	public Clientes() {
 		
@@ -72,6 +73,8 @@ public class Clientes extends JFrame {
 		dtm.addColumn("direccion");
 		dtm.addColumn("telefono");
 		dtm.addColumn("correo");
+		
+		
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(498, 11, 227, 72);

@@ -174,7 +174,7 @@ public class Compra extends JFrame {
 				
 			}
 		});
-		buttonCrearProducto.setBounds(665, 440, 238, 52);
+		buttonCrearProducto.setBounds(284, 418, 238, 52);
 		buttonCrearProducto.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonCrearProducto.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
 		
@@ -243,18 +243,23 @@ public class Compra extends JFrame {
 		lblNewLabel_12.setBounds(1029, 115, 89, 27);
 		PanelFondo.add(lblNewLabel_12);
 		
-		JButton btnNewButton_1 = new JButton("COMPRAR");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton_1.setBounds(931, 482, 122, 40);
-		PanelFondo.add(btnNewButton_1);
+		JButton btnRealizarFactura = new JButton("REALIZAR FACTURA");
+		
+		btnRealizarFactura.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
+		btnRealizarFactura.setBounds(701, 418, 227, 52);
+		PanelFondo.add(btnRealizarFactura);
 		
 		
 		/* ACCIONES */
+		
+		//BOTON REALIZAR FACTURA
+		btnRealizarFactura.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ControladorDatos().borrarFichero();
+				
+				
+			}
+		});
 		
 		
 	}
