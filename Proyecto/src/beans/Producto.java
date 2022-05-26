@@ -3,15 +3,15 @@ package beans;
 public class Producto {
 	private int id_prod;
 	private String nombre;
-	private int precio_venta;
-	private int precio_compra;
-	private int cantidad;
+	private String precio_venta;
+	private String precio_compra;
+	private String cantidad;
 	
 	public Producto(int id_prod) {
 		this.id_prod = id_prod;
 	}
 	
-	public Producto(int id_prod, String nombre, int precio_venta, int precio_compra, int cantidad) {
+	public Producto(int id_prod, String nombre, String precio_venta, String precio_compra, String cantidad) {
 		this.id_prod = id_prod;
 		this.nombre = nombre;
 		this.precio_venta = precio_venta;
@@ -37,27 +37,27 @@ public class Producto {
 			this.nombre = nombre;
 		}
 		
-		public int getPrecio_venta() {
+		public String getPrecio_venta() {
 			return precio_venta;
 		}
 		
-		public void setPrecio_venta(int precio_venta) {
+		public void setPrecio_venta(String precio_venta) {
 			this.precio_venta = precio_venta;
 		}
 		
-		public int getPrecio_compra() {
+		public String getPrecio_compra() {
 			return precio_compra;
 		}
 		
-		public void setPrecio_compra(int precio_compra) {
+		public void setPrecio_compra(String precio_compra) {
 			this.precio_compra = precio_compra;
 		}
 		
-		public int getCantidad() {
+		public String getCantidad() {
 			return cantidad;
 		}
 		
-		public void setCantidad(int cantidad) {
+		public void setCantidad(String cantidad) {
 			this.cantidad = cantidad;
 		}
 }

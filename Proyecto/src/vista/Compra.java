@@ -119,8 +119,6 @@ public class Compra extends JFrame {
 		});
 		
 		
-		
-		
 		JPanel panel = new JPanel();
 		panel.setBounds(339, 180, 322, 271);
 		panel.setBackground(new Color(153, 204, 153));
@@ -213,10 +211,11 @@ public class Compra extends JFrame {
 		//BOTON REALIZAR FACTURA
 		btnRealizarFactura.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ControladorDatos().recogerDatos();
-				new ControladorDatos().borrarFichero();
-				
-				
+				String nombre = (textNombre.getText());
+				String precio_venta = (textPrecio_venta.getText());
+				String precio_compra = (textPrecio_compra.getText());
+				String cantidad = (textCantidad.getText());
+				new ControladorDatos().crearFichero(nombre, precio_venta, precio_compra, cantidad);	
 			}
 		});
 		

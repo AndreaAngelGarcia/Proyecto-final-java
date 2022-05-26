@@ -65,8 +65,9 @@ public class ControladorDatos {
 		/*new Compra().recogerDatos();*/
 	}
 	
-	public void crearFichero () {
-		new Compra().crearFichero();
+	public void crearFichero (String nombre, String precio_venta, String precio_compra, String cantidad) {
+		new Compra().crearFichero(nombre, precio_venta, precio_compra, cantidad);
+		JOptionPane.showMessageDialog(null, "¡Se ha creado el fichero correctamente!");
 	}
 	
 	public void borrarFichero () {

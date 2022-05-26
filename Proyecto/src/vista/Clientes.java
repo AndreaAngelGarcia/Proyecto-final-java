@@ -105,19 +105,6 @@ public class Clientes extends JFrame {
 			}
 		});
 		
-		JButton btnFactura = new JButton("COMPRAR");
-		btnFactura.setBounds(767, 461, 170, 58);
-		btnFactura.setIcon(new ImageIcon(Productos.class.getResource("/resources/report.png")));
-		btnFactura.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//Cliente cliente = crearClienteDesdeFormulario();
-				//new Compra(producto);
-				//dispose();  
-			}
-		});
-		btnFactura.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		btnFactura.setOpaque(true);
-		
 		JPanel panel = new JPanel();
 		panel.setBounds(228, 122, 277, 271);
 		panel.setBackground(new Color(153, 204, 153));
@@ -177,8 +164,7 @@ public class Clientes extends JFrame {
 		buttonCrearCliente.setBounds(211, 404, 139, 52);
 		buttonCrearCliente.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		buttonCrearCliente.setIcon(new ImageIcon(Productos.class.getResource("/resources/nuevo.png")));
-		
-		
+			
 		JButton buttonModificarCliente = new JButton("MODIFICAR");
 		buttonModificarCliente.setBounds(377, 404, 145, 52);
 		buttonModificarCliente.setIcon(new ImageIcon(Productos.class.getResource("/resources/Actualizar.png")));
@@ -202,7 +188,6 @@ public class Clientes extends JFrame {
 		PanelFondo.add(lblNewLabel);
 		PanelFondo.add(btnNewButton);
 		PanelFondo.add(btnNewButton_2);
-		PanelFondo.add(btnFactura);
 		PanelFondo.add(buttonCrearCliente);
 		PanelFondo.add(buttonModificarCliente);
 		PanelFondo.add(panel);
@@ -232,7 +217,7 @@ public class Clientes extends JFrame {
 		
 		JLabel lblNewLabel_9 = new JLabel("Nombre");
 		lblNewLabel_9.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(656, 83, 58, 25);
+		lblNewLabel_9.setBounds(658, 78, 58, 25);
 		PanelFondo.add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("Direcci\u00F3n");
@@ -249,12 +234,12 @@ public class Clientes extends JFrame {
 		
 		JLabel lblNewLabel_12 = new JLabel("Telefono");
 		lblNewLabel_12.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(916, 80, 89, 27);
+		lblNewLabel_12.setBounds(936, 78, 89, 27);
 		PanelFondo.add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_6 = new JLabel("Correo");
 		lblNewLabel_6.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel_6.setBounds(1041, 86, 64, 14);
+		lblNewLabel_6.setBounds(1035, 80, 72, 20);
 		PanelFondo.add(lblNewLabel_6);
 		
 		

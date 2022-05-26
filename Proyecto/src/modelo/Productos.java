@@ -16,9 +16,9 @@ public class Productos {
 	public void insertarProducto(Producto producto) {
 		int id_prod = producto.getId_prod();
 		String nombre = producto.getNombre();
-		int precio_venta = producto.getPrecio_venta();
-		int precio_compra = producto.getPrecio_compra();
-		int cantidad = producto.getCantidad();
+		String precio_venta = producto.getPrecio_venta();
+		String precio_compra = producto.getPrecio_compra();
+		String cantidad = producto.getCantidad();
 
 		Conexion.ejecutarUpdate("INSERT INTO PRODUCTOS (id_prod, nombre, precio_venta, precio_compra, cantidad) VALUES ('"+id_prod+"', '"+nombre+"', '"+precio_venta+"', '"+precio_compra+"', '"+cantidad+"');");
 	}
@@ -35,9 +35,9 @@ public class Productos {
 			while(resultado.next()) {
 				int id_prod = resultado.getInt("id_prod");
 				String nombre = resultado.getString("nombre");
-				int precio_venta = resultado.getInt("precio_venta");
-				int precio_compra = resultado.getInt("precio_compra");
-				int cantidad = resultado.getInt("cantidad");
+				String precio_venta = resultado.getString("precio_venta");
+				String precio_compra = resultado.getString("precio_compra");
+				String cantidad = resultado.getString("cantidad");
 				productos.add(new Producto(id_prod, nombre, precio_venta, precio_compra, cantidad));
 			}
 		} catch (SQLException e) {
@@ -56,9 +56,9 @@ public class Productos {
 	public void modificarProducto(Producto producto) {
 		int id_prod = producto.getId_prod();
 		String nombre = producto.getNombre();
-		int precio_venta = producto.getPrecio_venta();
-		int precio_compra = producto.getPrecio_compra();
-		int cantidad = producto.getCantidad();
+		String precio_venta = producto.getPrecio_venta();
+		String precio_compra = producto.getPrecio_compra();
+		String cantidad = producto.getCantidad();
 		
 		Conexion.ejecutarUpdate("UPDATE productos SET nombre='"+nombre+"', precio_venta='"+precio_venta+"', "
 				+ "precio_compra='"+precio_compra+"', cantidad ='"+cantidad+"' WHERE id_prod = "+id_prod+";");
