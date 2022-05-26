@@ -11,12 +11,12 @@ public class Clientes {
 	//CREAR CLIENTE
 
 	public void insertarCliente(Cliente cliente) {		
-		int id_clientes = cliente.getId_clientes();;
-		String nombre = cliente.getNombre();;
-		String dni = cliente.getDni();;
-		String direccion = cliente.getDireccion();;
-		int telefono = cliente.getTelefono();;
-		String correo = cliente.getCorreo();;
+		int id_clientes = cliente.getId_clientes();
+		String nombre = cliente.getNombre();
+		String dni = cliente.getDni();
+		String direccion = cliente.getDireccion();
+		int telefono = cliente.getTelefono();
+		String correo = cliente.getCorreo();
 			
 		
 		Conexion.ejecutarUpdate("INSERT INTO CLIENTES VALUES ('"+id_clientes+"', '"+nombre+"', '"+dni+"', '"+direccion+"', '"+telefono+"', '"+correo+"');");	
